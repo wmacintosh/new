@@ -1,4 +1,4 @@
-import { Utensils, Soup, Croissant, ChefHat, Carrot, CakeSlice, Jar } from 'lucide-react';
+import { Utensils, Soup, Croissant, ChefHat, Carrot, CakeSlice, GlassWater } from 'lucide-react';
 
 export const categories = [
   { id: "appetizers", name: "Appetizers & Dips", icon: "Utensils" },
@@ -7,7 +7,7 @@ export const categories = [
   { id: "mains", name: "Main Dishes", icon: "ChefHat" },
   { id: "sides", name: "Side Dishes", icon: "Carrot" },
   { id: "desserts", name: "Desserts & Baked Goods", icon: "CakeSlice" },
-  { id: "extras", name: "Sauces, Condiments & Extras", icon: "Jar" },
+  { id: "extras", name: "Sauces, Condiments & Extras", icon: "GlassWater" }, // <--- Changed icon here
 ];
 
 export const recipes = [

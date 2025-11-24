@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { 
   Search, ChefHat, Heart, ArrowLeft, 
-  Sparkles, Clock, Users, ChevronRight, Utensils, Soup, Croissant, Carrot, CakeSlice, Jar
+  Sparkles, Clock, Users, ChevronRight, Utensils, Soup, Croissant, Carrot, CakeSlice, GlassWater 
 } from 'lucide-react';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { categories, recipes } from './data/recipes';
 
 // --- ICON MAPPER ---
 const IconMap = {
-  Utensils, Soup, Croissant, ChefHat, Carrot, CakeSlice, Jar
+  Utensils, Soup, Croissant, ChefHat, Carrot, CakeSlice, GlassWater
 };
 
 export default function App() {
