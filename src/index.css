@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-deep-blue text-ice-blue font-nunito antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-deep-blue;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-card-blue rounded-full border border-blue-900;
+}
