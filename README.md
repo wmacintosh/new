@@ -22,4 +22,4 @@ The app uses a custom "Baltic Blue" palette designed to evoke warmth and memory 
 1. **Clone this repo:**
    ```bash
    git clone [https://github.com/yourusername/shirleys-kitchen.git](https://github.com/yourusername/shirleys-kitchen.git)
-   cd shirleys-kitchen
+   cd shirleys-kitchen# cookbook
