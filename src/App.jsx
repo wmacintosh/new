@@ -208,7 +208,7 @@ export default function App() {
           /* VIEW: LISTS & GRIDS */
           <div className="space-y-8 animate-fade-in">
             
-            {/* --- HOME VIEW WITH INTRO --- */}
+            {/* --- HOME VIEW WITH FULL INTRO --- */}
             {view === 'home' && !searchQuery && (
               <>
                 <div className="text-center mb-8 space-y-4">
@@ -216,14 +216,32 @@ export default function App() {
                     Shirley's Kitchen
                   </h1>
                   
-                  {/* DEDICATION / INTRO CARD */}
+                  {/* FULL DEDICATION / INTRO CARD */}
                   <div className="bg-card-blue/50 border border-blue-900/50 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto relative overflow-hidden">
                     <BookOpen className="absolute top-4 right-4 text-blue-900/20 w-24 h-24 -rotate-12" />
-                    <p className="text-blue-200 italic leading-relaxed text-lg relative z-10 font-serif">
-                      "My earliest memories of the kitchen are forged links to my Nan, Shirley MacIntosh. 
-                      It was her domain, a sanctuary where she moved with quiet, purposeful grace, her hands perpetually busy, 
-                      creating magic from simple ingredients. [cite_start]This book is a labor of love... preserving her legacy for generations to come[cite: 7, 8, 9]."
-                    </p>
+                    <div className="text-blue-200 italic leading-relaxed text-lg relative z-10 font-serif space-y-4 text-left">
+                      <p>
+                        My earliest memories of the kitchen are forged links to my Nan, Shirley MacIntosh. 
+                        It was her domain, a sanctuary where she moved with quiet, purposeful grace, her hands perpetually busy, 
+                        creating magic from simple ingredients.
+                      </p>
+                      <p>
+                        This book is a labor of love, a deeply personal compilation of her cherished recipes, 
+                        each one carrying a piece of her spirit, a story waiting to be retold. It's dedicated with particular affection 
+                        to her daughters, who, like myself, were privileged to learn the art of cooking beside her, absorbing not just 
+                        her techniques but also her quiet wisdom.
+                      </p>
+                      <p>
+                        These recipes are more than mere instructions; they are a tangible connection to her, a way to recreate 
+                        the flavors and the moments that defined our family gatherings, moments that now feel precious and fleeting 
+                        in the passage of time.
+                      </p>
+                      <p>
+                        May each dish you prepare from these pages bring back the warmth of her presence, the comfort of her touch, 
+                        and the joy of the memories we shared, preserving her legacy for generations to come. 
+                        This book is a way to hold on to her, to keep her alive in our kitchens and in our hearts.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
