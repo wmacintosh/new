@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { 
   Search, ChefHat, Heart, ArrowLeft, 
-  Sparkles, Clock, Users, ChevronRight, Utensils, Soup, Croissant, Carrot, CakeSlice, GlassWater 
+  Sparkles, Clock, Users, ChevronRight, Utensils, Soup, Croissant, Carrot, CakeSlice, GlassWater, BookOpen
 } from 'lucide-react';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { categories, recipes } from './data/recipes';
@@ -47,7 +47,6 @@ export default function App() {
 
   const goBack = () => {
     if (view === 'recipe') {
-      // If we were searching or in favorites, go back there, else category
       if (searchQuery) setView('home'); 
       else if (activeCategory) setView('category');
       else setView('home');
@@ -98,7 +97,7 @@ export default function App() {
       
       {/* --- NAVBAR --- */}
       <nav className="sticky top-0 z-50 bg-deep-blue/95 backdrop-blur border-b border-blue-900 p-4 shadow-lg">
-        <div className="max-w-3xl mx-auto flex items-center justify-between gap-4">
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
           {view !== 'home' && (
             <button onClick={goBack} className="p-2 hover:bg-card-blue rounded-full text-blue-300">
               <ArrowLeft size={24} />
@@ -126,7 +125,7 @@ export default function App() {
       </nav>
 
       {/* --- MAIN CONTENT --- */}
-      <main className="max-w-3xl mx-auto p-4 pt-6">
+      <main className="max-w-4xl mx-auto p-4 pt-6">
         
         {/* VIEW: RECIPE DETAIL */}
         {view === 'recipe' && selectedRecipe ? (
@@ -209,25 +208,39 @@ export default function App() {
           /* VIEW: LISTS & GRIDS */
           <div className="space-y-8 animate-fade-in">
             
-            {/* Categories Grid (Only on Home & No Search) */}
+            {/* --- HOME VIEW WITH INTRO --- */}
             {view === 'home' && !searchQuery && (
               <>
-                <div className="text-center mb-8 space-y-2">
-                  <h2 className="text-4xl font-serif font-bold text-ice-blue">Shirley's Kitchen</h2>
-                  <p className="text-blue-300">A cherished collection of recipes passed down through generations.</p>
+                <div className="text-center mb-8 space-y-4">
+                  <h1 className="text-4xl md:text-5xl font-serif font-bold text-ice-blue tracking-tight">
+                    Shirley's Kitchen
+                  </h1>
+                  
+                  {/* DEDICATION / INTRO CARD */}
+                  <div className="bg-card-blue/50 border border-blue-900/50 rounded-2xl p-6 md:p-8 max-w-2xl mx-auto relative overflow-hidden">
+                    <BookOpen className="absolute top-4 right-4 text-blue-900/20 w-24 h-24 -rotate-12" />
+                    <p className="text-blue-200 italic leading-relaxed text-lg relative z-10 font-serif">
+                      "My earliest memories of the kitchen are forged links to my Nan, Shirley MacIntosh. 
+                      It was her domain, a sanctuary where she moved with quiet, purposeful grace, her hands perpetually busy, 
+                      creating magic from simple ingredients. [cite_start]This book is a labor of love... preserving her legacy for generations to come[cite: 7, 8, 9]."
+                    </p>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {/* 3X WIDE GRID FORMAT */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {categories.map(cat => {
                     const Icon = IconMap[cat.icon] || ChefHat;
                     return (
                       <button
                         key={cat.id}
                         onClick={() => { setActiveCategory(cat); setView('category'); }}
-                        className="p-6 bg-card-blue border border-blue-900 rounded-2xl hover:border-blue-500 hover:shadow-blue-900/20 hover:shadow-lg transition-all group text-left flex flex-col items-center justify-center gap-3"
+                        className="p-6 bg-card-blue border border-blue-900 rounded-2xl hover:border-blue-500 hover:shadow-blue-900/20 hover:shadow-lg transition-all group flex flex-col items-center text-center gap-4 h-full justify-center"
                       >
-                        <Icon size={32} className="text-blue-400 group-hover:text-white transition-colors" />
-                        <span className="font-semibold text-ice-blue">{cat.name}</span>
+                        <div className="p-3 bg-deep-blue rounded-full group-hover:scale-110 transition-transform duration-300">
+                          <Icon size={32} className="text-blue-400 group-hover:text-white transition-colors" />
+                        </div>
+                        <span className="font-semibold text-ice-blue text-lg">{cat.name}</span>
                       </button>
                     )
                   })}
